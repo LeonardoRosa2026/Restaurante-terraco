@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terraço | Restaurante</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111;
+            color: white;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* INÍCIO */
+
+        .inicio {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+
+            background:
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .inicio-conteudo {
+            max-width: 800px;
+        }
+
+        .inicio h1 {
+            font-size: clamp(50px, 10vw, 100px);
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .inicio h2 {
+            font-size: clamp(25px, 5vw, 45px);
+            margin-bottom: 20px;
+        }
+
+        .inicio p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .botao {
+            display: inline-block;
+            background: #d4af37;
+            color: #111;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .botao:hover {
+            transform: scale(1.05);
+            background: #fff;
+        }
+
+        /* SEÇÕES */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #bbb;
+            margin-bottom: 50px;
+        }
+
+        /* SOBRE */
+
+        .sobre {
+            background: #181818;
+            text-align: center;
+        }
+
+        .sobre p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+            color: #ddd;
+            font-size: 18px;
+        }
+
+        /* CARDÁPIO */
+
+        .cardapio {
+            background: #111;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .prato {
+            background: #1d1d1d;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: .3s;
+        }
+
+        .prato:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .prato h3 {
+            color: #d4af37;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .prato p {
+            color: #bbb;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* EXPERIÊNCIA */
+
+        .experiencia {
+            background: #181818;
+            text-align: center;
+        }
+
+        .experiencia-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .experiencia-box {
+            padding: 30px;
+            background: #111;
+            border-radius: 15px;
+        }
+
+        .experiencia-box span {
+            font-size: 40px;
+        }
+
+        .experiencia-box h3 {
+            margin: 15px 0;
+            color: #d4af37;
+        }
+
+        .experiencia-box p {
+            color: #bbb;
+        }
+
+        /* CONTATO */
+
+        .contato {
+            text-align: center;
+            background: #111;
+        }
+
+        .contato p {
+            margin: 15px 0;
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 30px 20px;
+            color: #888;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .inicio {
+                padding-top: 150px;
+            }
+
+            .titulo {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="logo">
+            TERRAÇO
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+    </header>
+
+
+    <!-- INÍCIO -->
+
+    <section class="inicio" id="inicio">
+
+        <div class="inicio-conteudo">
+
+            <h1>TERRAÇO</h1>
+
+            <h2>Uma experiência gastronômica especial</h2>
+
+            <p>
+                Sabores marcantes, ambiente agradável
+                e momentos inesquecíveis.
+            </p>
+
+            <a class="botao" href="#cardapio">
+                Ver Cardápio
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+
+    <section class="sobre" id="sobre">
+
+        <h2 class="titulo">
+            Sobre o Terraço
+        </h2>
+
+        <p>
+            O Terraço nasceu para proporcionar uma experiência
+            gastronômica especial. Nossa missão é unir bons
+            ingredientes, pratos preparados com carinho e um
+            ambiente perfeito para aproveitar bons momentos.
+        </p>
+
+    </section>
+
+
+    <!-- CARDÁPIO -->
+
+    <section class="cardapio" id="cardapio">
+
+        <h2 class="titulo">
+            Nosso Cardápio
+        </h2>
+
+        <p class="subtitulo">
+            Conheça alguns dos nossos pratos
+        </p>
+
+        <div class="menu">
+
+            <div class="prato">
+
+                <h3>Prato Especial</h3>
+
+                <p>
+                    Delicioso prato preparado
+                    especialmente pela nossa cozinha.
+                </p>
+
+                <div class="preco">
+                    R$ 39,90
+                </div>
+
+            </div>
+
+
+            <div class="prato">
+
+                <h3>Parmegiana</h3>
+
+                <p>
+                    Filé empanado, molho especial,
+                    queijo e acompanhamento.
+                </p>
+
+                <div class="preco">
+                    R$ 42,90
+                </div>
+
+            </div>
+
+
+            <div class="prato">
+
+                <h3>Hambúrguer Terraço</h3>
+
+                <p>
+                    Hambúrguer artesanal com ingredientes
+                    selecionados.
+                </p>
+
+                <div class="preco">
+                    R$ 32,90
+                </div>
+
+            </div>
+
+
+            <div class="prato">
+
+                <h3>Porção Especial</h3>
+
+                <p>
+                    Uma combinação perfeita para
+                    compartilhar com quem você gosta.
+                </p>
+
+                <div class="preco">
+                    R$ 29,90
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIÊNCIA -->
+
+    <section class="experiencia" id="experiencia">
+
+        <h2 class="titulo">
+            Por que escolher o Terraço?
+        </h2>
+
+        <p class="subtitulo">
+            Mais do que uma refeição.
+            Uma experiência.
+        </p>
+
+
+        <div class="experiencia-container">
+
+            <div class="experiencia-box">
+
+                <span>🍽
